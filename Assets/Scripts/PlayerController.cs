@@ -59,18 +59,17 @@ public class PlayerController : MonoBehaviour {
 
 		rb.velocity = new Vector2 (moveSpeed, rb.velocity.y);
 
-		if ((Input.GetKeyDown(KeyCode.Space))&& grounded) {
+		if ((Input.GetKeyDown(KeyCode.Space)) && grounded) {
 			rb.velocity = new Vector2 (rb.velocity.x, jumpForce);
 		}
 
 		if(Input.GetKey (KeyCode.Space)) {
 			if (jumpTimeCounter > 0) {
 				rb.velocity = new Vector2 (rb.velocity.x, jumpForce);
-				jumpTimeCounter -= Time.deltaTime;
+				jumpTimeCounter -= 2 * Time.deltaTime;
 			} else if (jumpTimeCounter < 0) {
 				jumpTimeCounter = 0;
 			}
-				
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space)) {
